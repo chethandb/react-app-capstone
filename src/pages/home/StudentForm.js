@@ -7,7 +7,7 @@ import ListDisplay from './ListDisplay';
 export default function StudentForm({ uid }) {
   const [name, setName] = useState('');
   const [nuid, setNuid] = useState('');
-  const [course, setCourse] = useState('');
+  const [course, setCourse] = useState('CS');
   const [creditscomplete, setCreditscomplete] = useState('');
   const [lastsem, setLastsem] = useState('');
   const [optflag, setOptflag] = useState('');
@@ -27,7 +27,7 @@ export default function StudentForm({ uid }) {
       optflag,
       optstartdate,
     });
-    history.push('/listdisplay');
+    //history.push('/listdisplay');
   };
 
   // reset the form fields
@@ -66,13 +66,17 @@ export default function StudentForm({ uid }) {
           />
         </label>
         <label>
-          <span>Course (MS/MIS):</span>
-          <input
+          <span>Course (CS/MIS):</span>
+          {/* <input
             type="text"
             required
             onChange={(e) => setCourse(e.target.value)}
             value={course}
-          />
+          /> */}
+          <select onChange={(e) => setCourse(e.target.value)}>
+            <option value="CS">CS</option>
+            <option value="MIS">MIS</option>
+          </select>
         </label>
         <label>
           <span>Credits completed:</span>
